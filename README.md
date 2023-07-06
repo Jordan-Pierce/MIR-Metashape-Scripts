@@ -1,9 +1,9 @@
-# Mission: Iconic Reefs Agisoft Metashape API Scripts
+# Mission: Iconic Reefs Agisoft Metashape API Scripts  
 
 <p align="center">
   <img src="./Figures/MIR_Logo.png" alt="MIR_Logo">
 </p>
-
+  
 This repository contains the code described in the [Mission: Iconic Reef (MIR) Large Area Imaging (LAI) Guide]() and can be used to create large 3D reconstructed underwater scenes. The purpose of these scripts is to streamline and standardize, as much as possible, the processing of hundreds of LAI datasets
 
 For more information, please visit the [NOAA website](https://www.fisheries.noaa.gov/southeast/habitat-conservation/restoring-seven-iconic-reefs-mission-recover-coral-reefs-florida-keys). 
