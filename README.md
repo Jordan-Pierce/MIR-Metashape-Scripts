@@ -1,5 +1,31 @@
-# MIR_Metashape_Scripts
-Python scripts used to automate the SfM workflow for Mission: Iconic Reefs
+# Mission: Iconic Reefs Agisoft Metashape API Scripts
+
+<p align="center">
+  <img src="./Figures/MIR_Logo.png" alt="MIR_Logo">
+</p>
+
+This repository contains the code described in the [Mission: Iconic Reef (MIR) Large Area Imaging (LAI) Guide]() and can be used to create large 3D reconstructed underwater scenes. The purpose of these scripts is to streamline and standardize, as much as possible, the processing of hundreds of LAI datasets
+
+For more information, please visit the [NOAA website](https://www.fisheries.noaa.gov/southeast/habitat-conservation/restoring-seven-iconic-reefs-mission-recover-coral-reefs-florida-keys). 
+
+## Workflow
+
+The workflow consists of `5` parts, and can be run from commandline, or within Metashape using the `Script` tool. The scripted steps (see below) can be used to reconstuct an individual scene, or multiple scenes in succession; this is done by repeatedly running the respective script in a **loop**, one after the other (see script name prefixes for these).  
+
+**The steps include:**  
+1. Within Metashape `Scripts`, or via commandline, run script `processing_1.py`
+   - This will run all necessary steps from importing cameras, alignment, detecting markers, to alignment
+   - Note that the `loop` version of this script can process multiple scenes
+2. Within Metashape, manually define ground control points (i.e., markers), if applicable
+3. Within Metashape `Scripts`, or via commandline, run script `processing_2.py`
+    - This will run all necessary steps from optimizing camera alignment, filtering points based on uncertainty, to creating a dense point cloud
+    - Note that the `loop` version of this script can process multiple scenes
+5. Within Metashape, manually inspect Dense Cloud and define the scene's bounding polygon to reduce excess space
+6. Within Metashape `Scripts`, or via commandline, run script `processing_3.py`
+    - This will run all necessary steps for creating a DEM, mesh, and orthomosaic, and exporting the data products to disk
+    - Note that the `loop` version of this script can process multiple scenes  
+  
+For more details on each script, please the [instructions](./Scripts/README.md) in the `Scripts` folder.
 
 ---
 
