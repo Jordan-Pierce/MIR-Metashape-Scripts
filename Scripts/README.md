@@ -78,7 +78,7 @@ python script_name.py C:\Users\UserData\MIR\site_list.txt
 
 ## Script Explanation  
 
-`MIRmetashapeprocessing_PartI_PhotosToAlignment_v4.py`  
+[`MIRmetashapeprocessing_PartI_PhotosToAlignment_v4.py`](MIRmetashapeprocessing_PartI_PhotosToAlignment_v4.py)  
 This script is used to start the Agisoft Metashape workflow (NCCOS SOP for Agisoft Metashape, 
   Part I: SPC Generation) in Agisoft Metashape Professional Version 1.8.4 . This script brings 
   in  the images, imports them into a chunk, and Photo alignment matches detected features 
