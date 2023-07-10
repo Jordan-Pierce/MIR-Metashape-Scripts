@@ -93,8 +93,8 @@ This script is used to process SPC Generation for two or more plots sequentially
 [`MIRmetashapeprocessing_PartII_MarkersToDense_v7.py`](MIRmetashapeprocessing_PartII_MarkersToDense_v7.py)  
 This script is used to run through an error reduction routine, optimize camera alignment, 
   remove erroneous points from the SPC and resize the region before building a dense point 
-  cloud (DPC; see NCCOS SOP for Agisoft Metashape, Part III: Optimization and Error Reduction and 
-  Part IV: Building the DPC). Thresholds for Reconstruction Uncertainty, Projection Accuracy, 
+  cloud (DPC; see NCCOS SOP for Agisoft Metashape, `Part III: Optimization and Error Reduction and 
+  Part IV: Building the DPC`). Thresholds for Reconstruction Uncertainty, Projection Accuracy, 
 Reprojection Error are defined at the beginning of the script as percentages and target  
   thresholds to not cross.   
 
@@ -106,7 +106,7 @@ After creating the DPC, the script exports the camera locations in
   geometry is optimized at each iteration. This may be accomplished manually or via scripts. A 
   3D DPC is created by calculating the depth information for each camera based on estimated 
   camera positions. The DPC can then be used for additional steps in the Metashape workflow 
-  such as building a DEM (Part V: Building the DEM and Orthomosaic). Note that building the 
+  such as building a DEM (`Part V: Building the DEM and Orthomosaic`). Note that building the 
   DPC is a computationally intensive process that requires computational resources and time to 
   complete.
 
@@ -120,7 +120,7 @@ This script is used to build a Digital Elevation Model (DEM) and an Orthomosic f
 georeferenced dense point cloud (DPC, see NCCOS SOP for Agisoft Metashape, Part V: Building the 
 DEM and Orthomosaic). There is an option to also build a tiled model. Another Report is 
 generated, but adding metadata on the orthomosaic and DEM. A DEM represents a surface model as 
-a grid of height values. DPCs built in Part IV: Building the DPC are georeferenced with 
+a grid of height values. DPCs built in `Part IV: Building the DPC` are georeferenced with 
 geographic coordinates from the field before a DEM is processed. High resolution top-down 2D 
 map views, known as Orthomosiacs (or orthophotomosaics), are created based on the source photos 
 and the reconstructed model. 
@@ -142,7 +142,7 @@ This script is used to rotate images to the orientation in which they were captu
   varying degrees of rotation from the orientation in which they were collected (i.e., 90 
   degrees, 180 degrees, 270 degrees). If Viscore is used for later analysis, it is preferable 
   for the images to be in the orientation they were captured in (i.e., landscape with no 
-  rotation) before conducting the steps described in Part I: SPC Generation in Metashape.
+  rotation) before conducting the steps described in `Part I: SPC Generation in Metashape`.
 
 [`extract_meta_MB.py`](extract_meta_MB.py)  
 This script is used to export specific 3D model data that will be used in the Viscore workflow 
