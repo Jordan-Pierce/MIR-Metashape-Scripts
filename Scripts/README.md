@@ -78,19 +78,19 @@ python script_name.py C:\Users\UserData\MIR\site_list.txt
 
 ## Script Explanation  
 
-[`MIRmetashapeprocessing_PartI_PhotosToAlignment_v4.py`](MIRmetashapeprocessing_PartI_PhotosToAlignment_v4.py)  
+[`scripts/MIRmetashapeprocessing_PartI_PhotosToAlignment_v4.py`](MIRmetashapeprocessing_PartI_PhotosToAlignment_v4.py)  
 This script is used to start the Agisoft Metashape workflow (NCCOS SOP for Agisoft Metashape, 
   Part I: SPC Generation) in Agisoft Metashape Professional Version 1.8.4 . This script brings 
   in the images, imports them into a chunk, and Photo alignment matches detected features 
   across a collection of photos to estimate the position and orientation of each image. This 
 process results in the creation of a sparse point cloud (SPC).
 
-[`MIRmetashapeprocessing_PartI-LOOP_v4.py`](MIRmetashapeprocessing_PartI-LOOP_v4.py)    
+[`scripts/MIRmetashapeprocessing_PartI-LOOP_v4.py`](MIRmetashapeprocessing_PartI-LOOP_v4.py)    
 This script is used to process SPC Generation for two or more plots sequentially. A text file 
   containing the file paths for the image folders is created and the path for the .txt file is 
   used as the arguments. 
 
-[`MIRmetashapeprocessing_PartII_MarkersToDense_v7.py`](MIRmetashapeprocessing_PartII_MarkersToDense_v7.py)  
+[`scripts/MIRmetashapeprocessing_PartII_MarkersToDense_v7.py`](MIRmetashapeprocessing_PartII_MarkersToDense_v7.py)  
 This script is used to run through an error reduction routine, optimize camera alignment, 
   remove erroneous points from the SPC and resize the region before building a dense point 
   cloud (DPC; see NCCOS SOP for Agisoft Metashape, `Part III: Optimization and Error Reduction and 
@@ -110,12 +110,12 @@ After creating the DPC, the script exports the camera locations in
   DPC is a computationally intensive process that requires computational resources and time to 
   complete.
 
-[`MIRmetashapeprocessing_PartII_LOOP_v6.py`](MIRmetashapeprocessing_PartII_LOOP_v6.py)  
+[`scripts/MIRmetashapeprocessing_PartII_LOOP_v6.py`](MIRmetashapeprocessing_PartII_LOOP_v6.py)  
 This script is used to process optimization, error reduction and build a DPC for two or more 
   plots sequentially. A text file containing the file paths for the image folders is created and 
   the path for the .txt file is used in the arguments. 
 
-[`MIRmetashapeprocessing_PartIII_ExportAgisoftProducts_v2.py`](MIRmetashapeprocessing_PartIII_ExportAgisoftProducts_v2.py)  
+[`scripts/MIRmetashapeprocessing_PartIII_ExportAgisoftProducts_v2.py`](MIRmetashapeprocessing_PartIII_ExportAgisoftProducts_v2.py)  
 This script is used to build a Digital Elevation Model (DEM) and an Orthomosic from a 
 georeferenced dense point cloud (DPC, see NCCOS SOP for Agisoft Metashape, Part V: Building the 
 DEM and Orthomosaic). There is an option to also build a tiled model. Another Report is 
@@ -125,18 +125,18 @@ geographic coordinates from the field before a DEM is processed. High resolution
 map views, known as Orthomosiacs (or orthophotomosaics), are created based on the source photos 
 and the reconstructed model. 
 
-[`MIRmetashapeprocessing_PartIII_LOOP.py`](MIRmetashapeprocessing_PartIII_LOOP.py)  
+[`scripts/MIRmetashapeprocessing_PartIII_LOOP.py`](MIRmetashapeprocessing_PartIII_LOOP.py)  
 This script is used to build a DEM and an Orthomosaic for two or more plots sequentially. A 
   text file containing the file paths for the image folders is created and the path for the .
   txt file is used in the arguments. 
 
-[`RemoveBlueFlags.py`](RemoveBlueFlags.py)  
+[`scripts/RemoveBlueFlags.py`](RemoveBlueFlags.py)  
 This script, adapted from an Agisoft forum post, is meant to remove blue flag markers. In the 
   camera optimization step, Agisoft takes into account the location of both the green and blue 
   flag markers to determine the correct location. This script is meant to eliminate the blue 
   flags and let Agisoft use only the user defined green flags in the coordinate solution. 
 
-[`rotaterV4.py`](rotaterV4.py)  
+[`scripts/rotaterV4.py`](rotaterV4.py)  
 This script is used to rotate images to the orientation in which they were captured.Depending 
   on the camera model used, images will be displayed in either landscape or portrait mode with 
   varying degrees of rotation from the orientation in which they were collected (i.e., 90 
@@ -144,7 +144,7 @@ This script is used to rotate images to the orientation in which they were captu
   for the images to be in the orientation they were captured in (i.e., landscape with no 
   rotation) before conducting the steps described in `Part I: SPC Generation in Metashape`.
 
-[`extract_meta_MB.py`](extract_meta_MB.py)  
+[`scripts/extract_meta_MB.py`](extract_meta_MB.py)  
 This script is used to export specific 3D model data that will be used in the Viscore workflow 
   (NCCOS 2023). The data are exported as three files: .ply, .meta.json, and .cams.xml. A .ply 
   file is converted to a Viscore-compatible format (.vml) so that point data may be visualized 

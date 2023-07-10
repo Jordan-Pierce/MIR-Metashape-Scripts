@@ -87,9 +87,14 @@ chunk.exportReport(path = export_path + '/' + proj_name + '_Report.pdf',
 # Export DEM
 if chunk.elevation:
     print("Exporting DEM")
+    compression = Metashape.ImageCompression()
+    compression.tiff_big = True
     chunk.exportRaster(path = export_path + '/' + proj_name + '_DEM.tif',
                        source_data = Metashape.ElevationData,
-                       north_up = True)
+                       image_compression = compression,
+                       north_up = True,
+                       white_background = False,
+                       clip_to_boundary=True)
 else:
     print("No DEM Created, none exported")
 
@@ -102,7 +107,9 @@ if chunk.orthomosaic:
                        source_data = Metashape.OrthomosaicData,
                        image_compression = compression,
                        save_kml = False,
-                       save_world = False)
+                       save_world = False,
+                       white_background = False,
+                       clip_to_boundary=True)
 else:
     print("No Orthophotomosaic Created, none exported")
 

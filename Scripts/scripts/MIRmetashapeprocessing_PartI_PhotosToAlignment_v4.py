@@ -3,7 +3,6 @@ import os, sys
 import time, datetime
 import math
 import json
-from csv import writer, DictWriter
 
 
 if len(sys.argv) > 1:
@@ -108,7 +107,7 @@ doc.save()
 
 #Detect markers
 chunk.detectMarkers(target_type = Metashape.CircularTarget12bit,
-              tolerance = 50,
+              tolerance = 40,
               filter_mask = False,
               inverted = False,
               noparity=False)
@@ -126,24 +125,6 @@ delta_time = end_time - start_time
 delta_time_hours = datetime.timedelta(seconds=delta_time)
 converted_time = str(delta_time_hours)
 
-#Write metadata to CSV
-#headersCSV = ['Site', 'AlignmentTimer',"RU_Threshold", "PA_Threshold", "RE_Threshold", "AlignmentPoints", "CleanPoints", "DenseTimer"]
-#dict = {'Site':proj_name, 'AlignmentTimer':converted_time}
-
-#Make sure the export csv exists. if not - make it
-#if not os.path.exists(base_dir + agisoft_files + "/MIRProcessingMetadata.csv"):
-#    with open(base_dir + agisoft_files + "/MIRProcessingMetadata.csv", 'a', newline='') as f_object:
-#        writer_object = writer(f_object)
-#        writer_object.writerow(headersCSV)
-#        f_object.close()
-
-#with open(base_dir + agisoft_files + "/MIRProcessingMetadata.csv", 'a', newline='') as f_object:
-#    dictwriter_object = DictWriter(f_object, fieldnames=headersCSV)
-#    dictwriter_object.writerow(dict)
-#    f_object.close()
-
-
-
 print("")
 print("Processing Competed In: ", converted_time)
 print("")
@@ -151,5 +132,3 @@ print("")
 print("Break to pick Markers and add Depths")
 print("")
 print("")
-
-

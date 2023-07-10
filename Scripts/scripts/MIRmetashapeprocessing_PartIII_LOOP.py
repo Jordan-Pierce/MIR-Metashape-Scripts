@@ -93,9 +93,12 @@ for pq in ProcessingQueue:
     # Export DEM
     if chunk.elevation:
         print("Exporting DEM")
-        chunk.exportRaster(path=export_path + '/' + proj_name + '_DEM.tif',
-                           source_data=Metashape.ElevationData,
-                           north_up=True)
+        compression = Metashape.ImageCompression()
+        compression.tiff_big = True
+        chunk.exportRaster(path = export_path + '/' + proj_name + '_DEM.tif',
+                           source_data = Metashape.ElevationData,
+                           image_compression = compression,
+                           north_up = True)
     else:
         print("No DEM Created, none exported")
 

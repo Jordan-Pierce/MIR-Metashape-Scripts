@@ -3,7 +3,6 @@ import os, sys
 import time, datetime
 import math
 import json
-#from csv import writer, DictWriter
 
 if len(sys.argv) > 1:
     # Define Image Path from user input
@@ -235,28 +234,28 @@ print(proj_name + " optimization 5/5 completed")
 doc.save()
 
 # Resize Region
-region = chunk.region
-T = chunk.transform.matrix
+#region = chunk.region
+#T = chunk.transform.matrix
 
-m = Metashape.Vector([10E+10, 10E+10, 10E+10])
-M = -m
+#m = Metashape.Vector([10E+10, 10E+10, 10E+10])
+#M = -m
 
-for point in chunk.point_cloud.points:
-    if not point.valid:
-        continue
-    coord = T * point.coord
-    for i in range(3):
-        m[i] = min(m[i], coord[i]) - 0.000015
-        M[i] = max(M[i], coord[i]) + 0.000015
+#for point in chunk.point_cloud.points:
+#    if not point.valid:
+#        continue
+#    coord = T * point.coord
+#    for i in range(3):
+#        m[i] = min(m[i], coord[i]) - 0.000015
+#        M[i] = max(M[i], coord[i]) + 0.000015
 
-center = (M + m) / 2
-size = M - m
-region.center = T.inv().mulp(center)
-region.size = size * (1 / T.scale())
+#center = (M + m) / 2
+#size = M - m
+#region.center = T.inv().mulp(center)
+#region.size = size * (1 / T.scale())
 
-region.rot = T.rotation().t()
+#region.rot = T.rotation().t()
 
-chunk.region = region
+#chunk.region = region
 
 # Build Depth Maps
 print(proj_name + " Building Depth Maps")
@@ -267,7 +266,7 @@ print(proj_name + " Building Depth Maps")
 #Medium = 4
 #Low = 8
 #Lowest = 16
-chunk.buildDepthMaps(downscale = 4, filter_mode = Metashape.ModerateFiltering)
+chunk.buildDepthMaps(downscale = 2, filter_mode = Metashape.ModerateFiltering)
 doc.save()
 
 # Build Dense Cloud
@@ -349,21 +348,6 @@ delta_time = end_time - start_time
 delta_time_hours = datetime.timedelta(seconds=delta_time)
 converted_time = str(delta_time_hours)
 
-#Write metadata to CSV
-#headersCSV = ['Site', 'AlignmentTimer',"RU_Threshold", "PA_Threshold", "RE_Threshold", "AlignmentPoints", "CleanPoints", "DenseTimer"]
-#dict2 = {'Site':proj_name, "RU_Threshold":RU_Threshold, "PA_Threshold":PA_Threshold, "RE_Threshold":RE_Threshold, "AlignmentPoints":AlignmentPoints , "CleanPoints":EndPoints, "DenseTimer":converted_time}
-
-#Make sure the export csv exists. if not - make it
-#if not os.path.exists(base_dir + agisoft_files + "/MIRProcessingMetadata.csv"):
-#    with open(base_dir + agisoft_files + "/MIRProcessingMetadata.csv", 'a', newline='') as f_object:
-#        writer_object = writer(f_object)
-#        writer_object.writerow(headersCSV)
-#        f_object.close()
-
-#with open(base_dir + agisoft_files + "/MIRProcessingMetadata.csv", 'a', newline='') as f_object:
-#    dictwriter_object = DictWriter(f_object, fieldnames=headersCSV)
-#    dictwriter_object.writerow(dict2)
-#    f_object.close()
 
 print("")
 print("Processing Report:")

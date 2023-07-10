@@ -2,7 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="223db6b6-5631-4ef8-88b6-5c58614e49d6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/MIRmetashapeprocessing_PartI-LOOP.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/MIRmetashapeprocessing_PartIII_ExportAgisoftProducts.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/MIRmetashapeprocessing_PartIII_LOOP.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/MIRmetashapeprocessing_PartII_LOOP.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/MIRmetashapeprocessing_PartII_MarkersToDense.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/MIRmetashapeprocessing_PartI_PhotosToDense.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/RemoveBlueFlags.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/rotaterV4.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,7 +32,11 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/jordan.pierce/Documents/GitHub/MIR-Metashape-Scripts",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -34,8 +47,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1669740069033</updated>
+      <workItem from="1689027770469" duration="302000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

@@ -24,7 +24,7 @@ RU_Threshold = 12
 PA_Threshold = 3.5
 RE_Threshold = 0.9
 
-proQ = open(sys.argv[1], "r")
+proQ = open(sys.argv[1],"r")
 lines = proQ.readlines()
 ProcessingQueue = []
 for line in lines:
@@ -36,6 +36,7 @@ for line in lines:
 print(ProcessingQueue)
 print("Number of sites to be processed:" + str(len(ProcessingQueue)))
 
+
 for pq in ProcessingQueue:
     # Define Image Path from user input
     img_path = pq
@@ -45,7 +46,7 @@ for pq in ProcessingQueue:
     print("base_dir: " + str(base_dir))
     print("jpeg_name: " + str(jpeg_name))
 
-    proj_name = str(jpeg_name.rsplit('_', 1)[0])
+    proj_name = str(jpeg_name.rsplit('_',1)[0])
     print("proj_name: " + str(proj_name))
 
     export_folder = proj_name
@@ -53,41 +54,42 @@ for pq in ProcessingQueue:
     export_path = os.path.join(base_dir, agisoft_files, export_folder)
     print("export_path: " + str(export_path))
 
-    # Define Start Time
+
+    #Define Start Time
     start_time = time.time()
     print_time = time.ctime(start_time)
     print("Start Time: ", print_time)
 
-    # Define which document
+    #Define which document
     doc = Metashape.app.document
     doc.open(export_path + '/' + proj_name + '.psx')
-    # doc.save(export_path + '/' + proj_name + '.psx')
-    # doc.save()
+    #doc.save(export_path + '/' + proj_name + '.psx')
+    #doc.save()
 
-    # Define which Chunk
-    # chunk = add.Chunk()
+    #Define which Chunk
+    #chunk = add.Chunk()
     chunk = Metashape.app.document.chunk
 
-    # Note:
-    # For matching accuracy the downscale correspondence should be the following:
-    # Highest = 0
-    # High = 1
-    # Medium = 2
-    # Low = 4
-    # Lowest = 8
+    #Note:
+    #For matching accuracy the downscale correspondence should be the following:
+    #Highest = 0
+    #High = 1
+    #Medium = 2
+    #Low = 4
+    #Lowest = 8
     #
-    # For depth maps quality the downscale correspondence should be the following:
-    # Ultra = 1
-    # High = 2
-    # Medium = 4
-    # Low = 8
-    # Lowest = 16
+    #For depth maps quality the downscale correspondence should be the following:
+    #Ultra = 1
+    #High = 2
+    #Medium = 4
+    #Low = 8
+    #Lowest = 16
 
     # Error Reduction
     # https://agisoft.freshdesk.com/support/solutions/articles/31000154629-how-to-select-fixed-percent-of-the-points-gradual-selection-using-python
 
     ## Reconstruction Uncertainty
-    chunk.optimizeCameras(fit_f=True, fit_cx=True, fit_cy=True, fit_k1=True, fit_k2=True, fit_k3=True,
+    chunk.optimizeCameras(fit_f=True, fit_cx=True, fit_cy=True,  fit_k1=True, fit_k2=True, fit_k3=True,
                           fit_k4=False, fit_p1=True, fit_p2=True, fit_b1=False, fit_b2=False,
                           fit_corrections=False, adaptive_fitting=False, tiepoint_covariance=False)
     print(proj_name + " optimization 1/5 completed")
@@ -95,7 +97,7 @@ for pq in ProcessingQueue:
 
     points = chunk.point_cloud.points
     f = Metashape.PointCloud.Filter()
-    f.init(chunk, criterion=Metashape.PointCloud.Filter.ReconstructionUncertainty)  # Reconstruction Uncertainty
+    f.init(chunk, criterion = Metashape.PointCloud.Filter.ReconstructionUncertainty) #Reconstruction Uncertainty
     list_values = f.values
     list_values_valid = list()
     StartPoints = len(list_values_valid)
@@ -123,7 +125,7 @@ for pq in ProcessingQueue:
     print("")
 
     ## Projection Accuracy
-    chunk.optimizeCameras(fit_f=True, fit_cx=True, fit_cy=True, fit_k1=True, fit_k2=True, fit_k3=True,
+    chunk.optimizeCameras(fit_f=True, fit_cx=True, fit_cy=True,  fit_k1=True, fit_k2=True, fit_k3=True,
                           fit_k4=False, fit_p1=True, fit_p2=True, fit_b1=False, fit_b2=False,
                           fit_corrections=False, adaptive_fitting=False, tiepoint_covariance=False)
     print(proj_name + " optimization 2/5 completed")
@@ -131,7 +133,7 @@ for pq in ProcessingQueue:
 
     points = chunk.point_cloud.points
     f = Metashape.PointCloud.Filter()
-    f.init(chunk, criterion=Metashape.PointCloud.Filter.ProjectionAccuracy)  # Projection Accuracy
+    f.init(chunk, criterion = Metashape.PointCloud.Filter.ProjectionAccuracy) #Projection Accuracy
     list_values = f.values
     list_values_valid = list()
 
@@ -157,7 +159,7 @@ for pq in ProcessingQueue:
     print("")
 
     ## Reprojection Error
-    chunk.optimizeCameras(fit_f=True, fit_cx=True, fit_cy=True, fit_k1=True, fit_k2=True, fit_k3=True,
+    chunk.optimizeCameras(fit_f=True, fit_cx=True, fit_cy=True,  fit_k1=True, fit_k2=True, fit_k3=True,
                           fit_k4=False, fit_p1=True, fit_p2=True, fit_b1=False, fit_b2=False,
                           fit_corrections=False, adaptive_fitting=False, tiepoint_covariance=False)
     print(proj_name + " optimization 3/5 completed")
@@ -165,7 +167,7 @@ for pq in ProcessingQueue:
 
     points = chunk.point_cloud.points
     f = Metashape.PointCloud.Filter()
-    f.init(chunk, criterion=Metashape.PointCloud.Filter.ReprojectionError)  # Reprojection Error
+    f.init(chunk, criterion = Metashape.PointCloud.Filter.ReprojectionError) #Reprojection Error
     list_values = f.values
     list_values_valid = list()
 
@@ -175,11 +177,11 @@ for pq in ProcessingQueue:
     list_values_valid.sort()
     target = int(len(list_values_valid) * RE_Percent / 100)
     StartPoints = int(len(list_values_valid))
-    # set threshold
+    #set threshold
     threshold = list_values_valid[target]
     if (threshold < RE_Threshold):
         threshold = RE_Threshold
-    # remove points
+    #remove points
     f.selectPoints(threshold)
     f.removePoints(threshold)
 
@@ -193,7 +195,7 @@ for pq in ProcessingQueue:
     print("")
 
     ## Reprojection Error 2
-    chunk.optimizeCameras(fit_f=True, fit_cx=True, fit_cy=True, fit_k1=True, fit_k2=True, fit_k3=True,
+    chunk.optimizeCameras(fit_f=True, fit_cx=True, fit_cy=True,  fit_k1=True, fit_k2=True, fit_k3=True,
                           fit_k4=True, fit_p1=True, fit_p2=True, fit_b1=True, fit_b2=True,
                           fit_corrections=False, adaptive_fitting=False, tiepoint_covariance=False)
     print(proj_name + " optimization 4/5 completed")
@@ -201,7 +203,7 @@ for pq in ProcessingQueue:
 
     points = chunk.point_cloud.points
     f = Metashape.PointCloud.Filter()
-    f.init(chunk, criterion=Metashape.PointCloud.Filter.ReprojectionError)  # Reprojection Error
+    f.init(chunk, criterion = Metashape.PointCloud.Filter.ReprojectionError) #Reprojection Error
     list_values = f.values
     list_values_valid = list()
 
@@ -227,65 +229,69 @@ for pq in ProcessingQueue:
     print(proj_name + " Reprojection Error filter 2 completed")
     print("")
 
-    chunk.optimizeCameras(fit_f=True, fit_cx=True, fit_cy=True, fit_k1=True, fit_k2=True, fit_k3=True,
+    chunk.optimizeCameras(fit_f=True, fit_cx=True, fit_cy=True,  fit_k1=True, fit_k2=True, fit_k3=True,
                           fit_k4=True, fit_p1=True, fit_p2=True, fit_b1=True, fit_b2=True,
                           fit_corrections=False, adaptive_fitting=False, tiepoint_covariance=False)
     print(proj_name + " optimization 5/5 completed")
     doc.save()
 
     # Resize Region
-    region = chunk.region
-    T = chunk.transform.matrix
+    #region = chunk.region
+    #T = chunk.transform.matrix
 
-    m = Metashape.Vector([10E+10, 10E+10, 10E+10])
-    M = -m
+    #m = Metashape.Vector([10E+10, 10E+10, 10E+10])
+    #M = -m
 
-    for point in chunk.point_cloud.points:
-        if not point.valid:
-            continue
-        coord = T * point.coord
-        for i in range(3):
-            m[i] = min(m[i], coord[i]) - 0.000015
-            M[i] = max(M[i], coord[i]) + 0.000015
+    #for point in chunk.point_cloud.points:
+    #    if not point.valid:
+    #        continue
+    #    coord = T * point.coord
+    #    for i in range(3):
+    #        m[i] = min(m[i], coord[i]) - 0.000015
+    #        M[i] = max(M[i], coord[i]) + 0.000015
 
-    center = (M + m) / 2
-    size = M - m
-    region.center = T.inv().mulp(center)
-    region.size = size * (1 / T.scale())
+    #center = (M + m) / 2
+    #size = M - m
+    #region.center = T.inv().mulp(center)
+    #region.size = size * (1 / T.scale())
 
-    region.rot = T.rotation().t()
+    #region.rot = T.rotation().t()
 
-    chunk.region = region
+    #chunk.region = region
 
     # Build Depth Maps
     print(proj_name + " Building Depth Maps")
-    # Note
-    # For depth maps quality the downscale correspondence should be the following:
-    # Ultra = 1
-    # High = 2
-    # Medium = 4
-    # Low = 8
-    # Lowest = 16
-    chunk.buildDepthMaps(downscale=4, filter_mode=Metashape.ModerateFiltering)
+    #Note
+    #For depth maps quality the downscale correspondence should be the following:
+    #Ultra = 1
+    #High = 2
+    #Medium = 4
+    #Low = 8
+    #Lowest = 16
+    chunk.buildDepthMaps(downscale = 2, filter_mode = Metashape.ModerateFiltering)
     doc.save()
 
     # Build Dense Cloud
     print(proj_name + " Building Dense Cloud")
-    chunk.buildDenseCloud(point_colors=True, point_confidence=True, keep_depth=True)
+    chunk.buildDenseCloud(point_colors=True, point_confidence=True, keep_depth=True,
+                    #max_neighbors=100,
+                    #subdivide_task=True,
+                    #workitem_size_cameras=20,
+                    #max_workgroup_size=100
+                    )
     doc.save()
     print(proj_name + " Dense Cloud built")
 
-    # Export Local points to Viscore
+    #Export Local points to Viscore
     if chunk.dense_cloud:
         chunk.exportPoints(export_path + '/' + proj_name + '.ply',
-                           source_data=Metashape.DenseCloudData,
-                           save_normals=True,
-                           save_colors=True,
-                           save_classes=False,  # Classes need to be false to see Point Conf in Viscore
-                           save_confidence=True)
-    doc.save()
+                           source_data = Metashape.DenseCloudData,
+                           save_normals = True,
+                           save_colors = True,
+                           save_classes = False, #Classes need to be false to see Point Conf in Viscore
+                           save_confidence = True)
 
-    # Export Cams to Viscore
+    #Export Cams to Viscore
     cams = chunk.cameras
 
     outputs = {}
@@ -319,7 +325,8 @@ for pq in ProcessingQueue:
     meta_file.close()
     doc.save()
 
-    # Duplicate Chunk for Markers and Georeferencing
+
+    #Duplicate Chunk for Markers and Georeferencing
     chunk.copy()
     doc.save()
 
@@ -329,20 +336,23 @@ for pq in ProcessingQueue:
     # Textual month, day and year
     d3 = today.strftime("%B %d, %Y")
 
-    chunk.exportReport(path=export_path + '/' + proj_name + '_Report.pdf',
-                       title=proj_name,
-                       description="Processing Report: " + d3)
+    chunk.exportReport(path = export_path + '/' + proj_name + '_Report.pdf',
+                       title = proj_name,
+                       description = "Processing Report: " + d3)
 
-    # Close document to prevent error on next run
+    doc.save()
+    
+    #Close document to prevent error on next run
     Metashape.Document()
 
-    # Define End Time
+    #Define End Time
     end_time = time.time()
     print_time = time.ctime(end_time)
     print("End Time: ", print_time)
     delta_time = end_time - start_time
     delta_time_hours = datetime.timedelta(seconds=delta_time)
     converted_time = str(delta_time_hours)
+
 
     print("")
     print("Processing Report:")
