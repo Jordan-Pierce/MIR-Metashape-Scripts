@@ -4,27 +4,31 @@ import time, datetime
 import math
 import json
 
+# Define Image Path
 if len(sys.argv) > 1:
     # Define Image Path from user input
     proQ = sys.argv[1]
-
 else:
     # Quit if no path given
     print("Please put the path to your Processing Queue in as an argument")
     sys.exit(1)
 
-##Selection Percentages
+
+# Selection Percentages
 RU_Percent = 50
 PA_Percent = 50
 RE_Percent = 10
 
-## Selection Thresholds
+# Selection Thresholds
 RU_Threshold = 12
 PA_Threshold = 3.5
 RE_Threshold = 0.9
 
-proQ = open(sys.argv[1],"r")
+# Define Image Paths, if multiple images are being processed
+proQ = open(sys.argv[1], "r")
 lines = proQ.readlines()
+
+# Record the paths to the sites
 ProcessingQueue = []
 for line in lines:
     if line[-1] == '\n':
@@ -32,14 +36,18 @@ for line in lines:
     else:
         ProcessingQueue.append(line)
 
+# Print the list
 print(ProcessingQueue)
 print("Number of sites to be processed:" + str(len(ProcessingQueue)))
-#proQ.close()
+# proQ.close()
 
+# Loop through each site
 for pq in ProcessingQueue:
+
     # Define Image Path from user input
     img_path = pq
 
+    # Set the
     proj_dir, jpeg_name = os.path.split(img_path)
     base_dir, img_folder = os.path.split(proj_dir)
     print("proj_dir: " + str(proj_dir))

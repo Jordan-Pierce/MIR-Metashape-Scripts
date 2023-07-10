@@ -8,7 +8,7 @@ This repository contains the code described in the [Mission: Iconic Reef (MIR) L
 
 For more information, please visit the [NOAA website](https://www.fisheries.noaa.gov/southeast/habitat-conservation/restoring-seven-iconic-reefs-mission-recover-coral-reefs-florida-keys). 
 
-## Workflow
+## Workflow 
 
 The workflow consists of `5` parts, and can be run from commandline, or within Metashape using the `Script` tool. The scripted steps (see below) can be used to reconstuct an individual scene, or multiple scenes in succession; this is done by repeatedly running the respective script in a **loop**, one after the other (see script name prefixes for these).  
 
