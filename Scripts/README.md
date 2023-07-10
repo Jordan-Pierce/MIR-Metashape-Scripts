@@ -116,14 +116,14 @@ This script is used to process optimization, error reduction and build a DPC for
   the path for the .txt file is used in the arguments. 
 
 `MIRmetashapeprocessing_PartIII_ExportAgisoftProducts_v2.py`  
-This script is used to build a Digital Elevation Model (DEM) and an Orthomosic from a  
-  georeferenced dense point cloud (DPC, see NCCOS SOP for Agisoft Metashape, Part V: Building the 
-  DEM and Orthomosaic). There is an option to also build a tiled model. Another Report is  
-  generated, but adding metadata on the orthomosaic and DEM. A DEM represents a surface model 
-  as a grid of height values. DPCs built in Part IV: Building the DPC are georeferenced with  
-  geographic coordinates from the field before a DEM is processed. High resolution top-down 2D 
-  map views, known as Orthomosiacs (or orthophotomosaics), are created based on the source 
-  photos and the reconstructed model. 
+This script is used to build a Digital Elevation Model (DEM) and an Orthomosic from a 
+georeferenced dense point cloud (DPC, see NCCOS SOP for Agisoft Metashape, Part V: Building the 
+DEM and Orthomosaic). There is an option to also build a tiled model. Another Report is 
+generated, but adding metadata on the orthomosaic and DEM. A DEM represents a surface model as 
+a grid of height values. DPCs built in Part IV: Building the DPC are georeferenced with 
+geographic coordinates from the field before a DEM is processed. High resolution top-down 2D 
+map views, known as Orthomosiacs (or orthophotomosaics), are created based on the source photos 
+and the reconstructed model. 
 
 `MIRmetashapeprocessing_PartIII_LOOP.py`  
 This script is used to build a DEM and an Orthomosaic for two or more plots sequentially. A 
