@@ -9,6 +9,7 @@ import glob
 import numpy as np
 from exif import Image
 import pathlib
+import argparse
 
 SENTINEL = None
 
@@ -112,20 +113,45 @@ def rotate_img(fp):
         img_file.write(img.get_file())
         img_file.truncate()
 
+
 if __name__ == '__main__':
 
-    mother_folder = '.' # period means the one I'm in, life generally easier 
-                            # if you don't rely on that notation and instead
-                            # explicitly pick one with C:Users/etc notation
-        
+    parser = argparse.ArgumentParser(description='Image Rotator')
+
+    parser.add_argument('--input', type=str, default="", required=True,
+                        help='Input is one or more paths to input folder(s), ' \
+                             'or a text file containing the paths to one or ' \
+                             'more input folder(s).')
+
+    args = parser.parse_args()
+
+    inputs = args.input
+
+    # Make sure user added input, check against default
+    if inputs is "":
+        raise Exception("ERROR: No input was provided; ' \
+                        please see the help for input instructions")
+    
+    # Make sure user added valid folder
+    if not os.path.exists(inputs):
+        raise Exception("ERROR: Provided input folder does not exist.")
+
+    # Setting the root ("mother") folder
+    mother_folder = input + "/"
+    
+    # Globbing all jpg and JPG images
     file_paths = list(pathlib.Path(mother_folder).rglob(r"*.[jJ][pP][gG]"))
     
+    # Looping through each of the files, adding to a queue for multiprocessing
     x = []
+
     for fp in file_paths:
         x.append({'fp': fp})
     
-    task_list = {'func':rotate_img, 'tasks': x}
+    # Mapping tasks in queue to function
+    task_list = {'func': rotate_img, 'tasks': x}
     
+    # Executing
     results = par_proc(task_list)
 
     print('done')
