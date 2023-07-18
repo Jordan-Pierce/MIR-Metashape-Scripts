@@ -1,0 +1,13 @@
+defusedxml==0.7.1
+dill==0.3.6
+exif==1.6.0
+ExifRead==3.0.0
+ExifReader==0.1.1
+numpy==1.24.4
+pandas==2.0.3
+plum-py==0.8.6
+psutil==5.9.5
+python-dateutil==2.8.2
+pytz==2023.3
+six==1.16.0
+tzdata==2023.3
