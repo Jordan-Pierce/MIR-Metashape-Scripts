@@ -7,7 +7,6 @@ import argparse
 
 import Metashape
 
-
 parser = argparse.ArgumentParser(description='MIR Metashape Processing II')
 
 parser.add_argument('--input', type=str, nargs="+", default=[], required=True,

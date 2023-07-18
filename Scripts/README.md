@@ -71,7 +71,7 @@ If running entirely from the command line, make sure to also install Metashape, 
 folder in the root of the repository:
 ```python
 # commandline
-pip install Packages/Metashape-2.0.1-cp37.cp38.cp39.cp310.cp311-none-win_amd64.whl
+pip install Packages/Metashape-1.8.4-cp35.cp36.cp37.cp38-none-win_amd64
 ```
 As well as activate the license within your python environment:
 ```python
