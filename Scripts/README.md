@@ -67,6 +67,19 @@ Altneratively, we also include a `requirements.txt` file that can be used to ins
 pip install -r requirements.txt
 ```
 
+If running entirely from the command line, make sure to also install Metashape, which is located in the `Packages` 
+folder in the root of the repository:
+```python
+# commandline
+pip install Packages/Metashape-2.0.1-cp37.cp38.cp39.cp310.cp311-none-win_amd64.whl
+```
+As well as activate the license within your python environment:
+```python
+# python terminal
+import Metashape
+Metashape.License().activate("####-####-####")
+```
+
 ## Script Explanation 
 
 ### Metashape Processing Scripts
