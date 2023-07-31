@@ -10,20 +10,20 @@ For more information, please visit the [NOAA website](https://www.fisheries.noaa
 
 ## Workflow 
 
-The workflow consists of `5` parts, and can be run from commandline, or within Metashape using the `Script` tool. The scripted steps (see below) can be used to reconstuct an individual scene, or multiple scenes in succession; this is done by repeatedly running the respective script in a **loop**, one after the other (see script name prefixes for these).  
+The workflow consists of `3` parts, and can be run from within Metashape using the `Script` tool. The scripted steps (see below) can be used to reconstuct an individual scene, or multiple scenes in succession; this is done by repeatedly running the respective script in a **loop**, one after the other.  
 
 **The steps include:**  
-1. Within Metashape `Scripts`, or via commandline, run script `processing_1.py`
+1. Within Metashape `Scripts`, or via commandline, run script `MIR_Metashape_Processing_I.py`
    - This will run all necessary steps from importing cameras, alignment, detecting markers, to alignment
-   - Note that the `loop` version of this script can process multiple scenes
+   - Note that this script can process multiple scenes
 2. Within Metashape, manually define ground control points (i.e., markers), if applicable
-3. Within Metashape `Scripts`, or via commandline, run script `processing_2.py`
+3. Within Metashape `Scripts`, or via commandline, run script `MIR_Metashape_Processing_II.py`
     - This will run all necessary steps from optimizing camera alignment, filtering points based on uncertainty, to creating a dense point cloud
-    - Note that the `loop` version of this script can process multiple scenes
+   - Note that this script can process multiple scenes
 5. Within Metashape, manually inspect Dense Cloud and define the scene's bounding polygon to reduce excess space
-6. Within Metashape `Scripts`, or via commandline, run script `processing_3.py`
+6. Within Metashape `Scripts`, or via commandline, run script `MIR_Metashape_Processing_III.py`
     - This will run all necessary steps for creating a DEM, mesh, and orthomosaic, and exporting the data products to disk
-    - Note that the `loop` version of this script can process multiple scenes  
+   - Note that this script can process multiple scenes
   
 For more details on each script, please the [instructions](./Scripts/README.md) in the `Scripts` folder.
 
