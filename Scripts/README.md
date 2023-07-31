@@ -123,21 +123,21 @@ and the reconstructed model.
 
 ### Running Metashape Scripts
 
-All Metashape scripts require a single `--input` argument, representing the path(s) to the one or more folders of images you 
+All Metashape scripts (`I`, `II`, and `III`) require a single `--input` argument, representing the path(s) to the one or more folders of images you 
 want to process. The `--input` argument expects one of the following:
 ```python
 # commandline
 
 # Example 1 - single site
-python MIR_Metashape_Processing_1.py  --input "C:\\Users\\UserData\\MIR\\Raw_Imagery\\EDR_R1-5_20230705\\"
+python MIR_Metashape_Processing_X.py  --input "C:\\Users\\UserData\\MIR\\Raw_Imagery\\EDR_R1-5_20230705\\"
 
 # Example 2 - multiple sites 
-python MIR_Metashape_Processing_1.py  --input "C:\\Users\\UserData\\MIR\\Raw_Imagery\\EDR_R1-1_20230705\\" \
+python MIR_Metashape_Processing_X.py  --input "C:\\Users\\UserData\\MIR\\Raw_Imagery\\EDR_R1-1_20230705\\" \
                                               "C:\\Users\\UserData\\MIR\\Raw_Imagery\\EDR_R1-2_20230705\\" \
                                               "C:\\Users\\UserData\\MIR\\Raw_Imagery\\EDR_R1-3_20230705\\"
 
 # Example 3 - one or more sites whose paths are in a text file
-python MIR_Metashape_Processing_1.py --input site_list.txt
+python MIR_Metashape_Processing_X.py --input site_list.txt
 
 ```
 
