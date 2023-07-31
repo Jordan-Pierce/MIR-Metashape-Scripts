@@ -67,7 +67,7 @@ Altneratively, we also include a `requirements.txt` file that can be used to ins
 pip install -r requirements.txt
 ```
 
-If running entirely from the command line, make sure to also install Metashape, which is located in the `Packages` 
+If running entirely from the command line, make sure to also install Metashape (`1.8.4`), which is located in the `Packages` 
 folder in the root of the repository:
 ```python
 # commandline
@@ -169,7 +169,7 @@ This script is used to rotate images to the orientation in which they were captu
 
 ```python 
 # commandline
-B:\MIR-Metashape-Scripts\Scripts\scripts>python image_rotator.py --input "E:\Raw_Imagery\Site_Images"
+python image_rotator.py --input "E:\Raw_Imagery\Site_Images"
 ```
 ```python
 # Expected output:
