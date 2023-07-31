@@ -10,7 +10,7 @@ For more information, please visit the [NOAA website](https://www.fisheries.noaa
 
 ## Workflow 
 
-The workflow consists of `3` parts, and can be run from within Metashape using the `Script` tool. The scripted steps (see below) can be used to reconstuct an individual scene, or multiple scenes in succession; this is done by repeatedly running the respective script in a **loop**, one after the other.  
+The workflow consists of `5` parts, and can be run from within Metashape using the `Script` tool. The scripted steps (see below) can be used to reconstuct an individual scene, or multiple scenes in succession; this is done by repeatedly running the respective script in a **loop**, one after the other.  
 
 **The steps include:**  
 1. Within Metashape `Scripts`, or via commandline, run script `MIR_Metashape_Processing_I.py`
