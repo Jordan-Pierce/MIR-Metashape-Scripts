@@ -84,14 +84,14 @@ Metashape.License().activate("####-####-####")
 
 ### Metashape Processing Scripts
 
-[`MIR_Metashape_Processing_Part_I.py`](./scripts/MIR_Metashape_Processing_Part_I.py)  
+[`MIR_Metashape_Processing_Part_I.py`](scripts/MIR_Metashape_Processing_I.py)  
 This script is used to start the Agisoft Metashape workflow (NCCOS SOP for Agisoft Metashape, 
   Part I: SPC Generation) in Agisoft Metashape Professional Version 1.8.4 . This script brings 
   in the images, imports them into a chunk, and Photo alignment matches detected features 
   across a collection of photos to estimate the position and orientation of each image. This 
 process results in the creation of a sparse point cloud (SPC).
 
-[`MIR_Metashape_Processing_Part_II.py`](./scripts/MIR_Metashape_Processing_Part_II.py)  
+[`MIR_Metashape_Processing_Part_II.py`](scripts/MIR_Metashape_Processing_II.py)  
 This script is used to run through an error reduction routine, optimize camera alignment, 
   remove erroneous points from the SPC and resize the region before building a dense point 
   cloud (DPC; see NCCOS SOP for Agisoft Metashape, `Part III: Optimization and Error Reduction and 
@@ -111,7 +111,7 @@ After creating the DPC, the script exports the camera locations in
   DPC is a computationally intensive process that requires computational resources and time to 
   complete.
 
-[`scripts/MIR_Metashape_Processing_Part_III.py`](./scripts/MIR_Metashape_Processing_Part_III.py)  
+[`scripts/MIR_Metashape_Processing_Part_III.py`](scripts/MIR_Metashape_Processing_III.py)  
 This script is used to build a Digital Elevation Model (DEM) and an Orthomosic from a 
 georeferenced dense point cloud (DPC, see NCCOS SOP for Agisoft Metashape, Part V: Building the 
 DEM and Orthomosaic). There is an option to also build a tiled model. Another Report is 
