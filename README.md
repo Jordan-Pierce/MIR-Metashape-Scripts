@@ -27,6 +27,13 @@ The workflow consists of `5` parts, and can be run from within Metashape using t
   
 For more details on each script, please the [instructions](./Scripts/README.md) in the `Scripts` folder.
 
+### Metashape Version
+
+The scripts in this workflow use Metashape 1.8.4; because of updates, using other versions might cause the scripts to fail.
+Below are links to the Metashape Desktop, and wheels to the Metashape Python API:
+- [Metashape Desktop 1.8.4 (Windows)](https://s3-eu-west-1.amazonaws.com/download.agisoft.com/metashape-pro_1_8_4_x64.msi)
+- [Metashape Python API 1.8.4 (Windows)](https://github.com/Jordan-Pierce/MIR-Metashape-Scripts/blob/main/Packages/Metashape-1.8.4-cp35.cp36.cp37.cp38-none-win_amd64.whl)
+
 ---
 
 ### Disclaimer
